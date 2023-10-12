@@ -3,7 +3,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-[90vw] mx-[5vw] fixed top-5 bg-white text-sm py-4 dark:bg-black border border-gray-500">
+    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-[90vw] mx-[5vw] sticky rounded-md top-5 bg-white text-sm py-4 dark:bg-black border border-gray-500">
       <nav
         className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
         aria-label="Global"
