@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Schedules = () => {
+const Schedules = async () => {
+  const schedulesData = await fetch("http://localhost:3000/api/schedules", {
+    cache: "no-store",
+  });
+  const schedulesDataJson = await schedulesData.json();
     // a table showing the list of events and timing , a button to add event
   return (
     <section>
@@ -38,56 +42,30 @@ const Schedules = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                      John Brown
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                      45
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                      New York No. 1 Lake Park
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a className="text-blue-500 hover:text-blue-700" href="#">
-                        Delete
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                      Jim Green
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                      27
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                      London No. 1 Lake Park
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a className="text-blue-500 hover:text-blue-700" href="#">
-                        Delete
-                      </a>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                      Joe Black
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                      31
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                      Sidney No. 1 Lake Park
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a className="text-blue-500 hover:text-blue-700" href="#">
-                        Delete
-                      </a>
-                    </td>
-                  </tr>
+                  {schedulesDataJson.map(schedule => {
+                    return (
+                      <tr key={schedule._id}>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                          {schedule.with}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          {schedule.purpose}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          {schedule.time}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <a
+                            className="text-blue-500 hover:text-blue-700"
+                            href="#"
+                          >
+                            Delete
+                          </a>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  
                 </tbody>
               </table>
             </div>
