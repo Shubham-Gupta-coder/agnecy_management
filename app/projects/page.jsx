@@ -1,5 +1,6 @@
 import DeleteBtn from "@/components/DeleteBtn";
 import React from "react";
+import Modal from "./ProjectsModal";
 
 const page = async () => {
   // lets leave it here
@@ -11,6 +12,7 @@ const page = async () => {
   return (
     <section className="container mx-auto py-10">
       <h1 className="my-5">Projects</h1>
+      <Modal/>
       <div className="flex flex-col">
         <div className="-m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">

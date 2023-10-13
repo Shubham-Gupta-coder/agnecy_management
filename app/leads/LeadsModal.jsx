@@ -5,8 +5,8 @@ import React, { useState } from "react";
 const Modal = () => {
   const [mode, setMode] = useState("hidden");
   const [name, setName] = useState("");
-  const [purpose, setPurpose] = useState("");
-  const [time, setTime] = useState("");
+  const [business_name, setbusiness_name] = useState("");
+  const [link, setlink] = useState("");
   return (
     <>
       <button
@@ -14,7 +14,7 @@ const Modal = () => {
         className="py-3 px-4 mb-5 w-full inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:text-gray-500 dark:hover:bg-blue-700 dark:hover:text-gray-300 dark:focus:ring-offset-black"
         onClick={() => setMode(mode == "hidden" ? "block" : "hidden")}
       >
-        Add Schedule
+        Add Lead
       </button>
 
       <div
@@ -24,7 +24,7 @@ const Modal = () => {
           <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-black dark:border-gray-500 dark:shadow-slate-700/[.7]">
             <div className="flex justify-between items-center py-3 px-4 border-b dark:border-gray-500">
               <h3 className="font-bold text-black dark:text-white">
-                Add Schedule
+                Add Lead
               </h3>
               <button
                 onClick={() => setMode("hidden")}
@@ -52,9 +52,9 @@ const Modal = () => {
                 <input
                   className="y-3 py-3 my-2 px-4 block w-full border-gray-200  text-sm border-b-2 focus:border-blue-500 focus:ring-blue-500 dark:bg-black dark:border-gray-500 dark:text-gray-400"
                   type="text"
-                  name="with"
-                  id="with"
-                  placeholder="With(Person)"
+                  name="Name"
+                  id="Name"
+                  placeholder="Name"
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
@@ -63,23 +63,23 @@ const Modal = () => {
                 <input
                   className="y-3 py-3 my-2 px-4 block w-full border-b-2  border-gray-200  text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-black dark:border-gray-500 dark:text-gray-400"
                   type="text"
-                  name="purpose"
-                  id="purpose"
-                  placeholder="Purpose"
-                  value={purpose}
+                  name="business_name"
+                  id="business_name"
+                  placeholder="business_name"
+                  value={business_name}
                   onChange={(e) => {
-                    setPurpose(e.target.value);
+                    setbusiness_name(e.target.value);
                   }}
                 />
                 <input
                   className="y-3 py-3 my-2 px-4 block w-full border-b-2  border-gray-200  text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-black dark:border-gray-500 dark:text-gray-400"
                   type="text"
-                  name="time"
-                  id="time"
-                  placeholder="Timing"
-                  value={time}
+                  name="link"
+                  id="link"
+                  placeholder="Link"
+                  value={link}
                   onChange={(e) => {
-                    setTime(e.target.value);
+                    setlink(e.target.value);
                   }}
                 />
               </div>
@@ -88,7 +88,7 @@ const Modal = () => {
               <span
                 className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-black"
                 onClick={() => {
-                  let dataObj = {name, purpose, time}
+                  let dataObj = { name, business_name, link };
                   console.log(dataObj);
                 }}
               >
