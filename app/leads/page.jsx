@@ -1,3 +1,6 @@
+"use client"
+
+import DeleteBtn from "@/components/DeleteBtn";
 import React from "react";
 
 const page = async () => {
@@ -43,6 +46,7 @@ const page = async () => {
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {leadsDataJson.map((lead) => {
+                    console.log(lead._id)
                     return (
                       <tr key={lead._id}>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
@@ -52,20 +56,12 @@ const page = async () => {
                           {lead.business_name}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200 cursor-pointer">
-                            <a
-                              href={lead.link}
-                              target="_blank"
-                            >
-                              Go to client
-                            </a>
+                          <a href={lead.link} target="_blank">
+                            Go to client
+                          </a>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a
-                            className="text-blue-500 hover:text-blue-700"
-                            href="#"
-                          >
-                            Delete
-                          </a>
+                          <DeleteBtn slug="leads" id={lead._id} />
                         </td>
                       </tr>
                     );

@@ -1,6 +1,9 @@
+import DeleteBtn from "@/components/DeleteBtn";
 import React from "react";
 
 const page = async () => {
+  // lets leave it here
+  // TODO: fix reload issue
   const projectsData = await fetch("http://localhost:3000/api/projects", {
     cache: "no-store",
   });
@@ -63,12 +66,7 @@ const page = async () => {
                         {project.amountfreelancer}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a
-                          className="text-blue-500 hover:text-blue-700"
-                          href="#"
-                        >
-                          Delete
-                        </a>
+                        <DeleteBtn slug="projects" id={project._id}/>
                       </td>
                     </tr>;
                   })}
