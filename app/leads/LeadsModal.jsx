@@ -1,12 +1,29 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Modal = () => {
+  const router = useRouter();
+
   const [mode, setMode] = useState("hidden");
   const [name, setName] = useState("");
   const [business_name, setbusiness_name] = useState("");
   const [link, setlink] = useState("");
+  async function postData() {
+    const dataObj = { name, business_name, link };
+    const schedulesPost = await fetch("http://localhost:3000/api/leads", {
+      method: "POST",
+      cache: "no-store",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(dataObj),
+    });
+    const res = await schedulesPost.json();
+    setMode("hidden");
+    router.refresh();
+  }
   return (
     <>
       <button
@@ -23,9 +40,7 @@ const Modal = () => {
         <div className="mt-7 opacity-100 duration-500 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
           <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-black dark:border-gray-500 dark:shadow-slate-700/[.7]">
             <div className="flex justify-between items-center py-3 px-4 border-b dark:border-gray-500">
-              <h3 className="font-bold text-black dark:text-white">
-                Add Lead
-              </h3>
+              <h3 className="font-bold text-black dark:text-white">Add Lead</h3>
               <button
                 onClick={() => setMode("hidden")}
                 type="button"
@@ -88,8 +103,7 @@ const Modal = () => {
               <span
                 className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-black"
                 onClick={() => {
-                  let dataObj = { name, business_name, link };
-                  console.log(dataObj);
+                  postData();
                 }}
               >
                 Save changes

@@ -19,6 +19,7 @@ export async function GET(request, { params }) {
 export async function POST(request, { params }) {
   let { slug } = params;
   const toPost = await request.json()
+  console.log(toPost)
   const database = client.db("agency_management");
   const collections = database.collection(slug);
   const data = await collections.insertOne(toPost);

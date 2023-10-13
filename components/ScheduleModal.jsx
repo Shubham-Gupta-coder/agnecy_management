@@ -1,12 +1,33 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Modal = () => {
+  const router = useRouter()
   const [mode, setMode] = useState("hidden");
   const [name, setName] = useState("");
   const [purpose, setPurpose] = useState("");
   const [time, setTime] = useState("");
+  // so guys i was trying to find error from 1 hour and the error was the variable name it happened to me 2 times in this project so pleas keep it in always mind..I was about to cry ...XD
+  async function postData() {
+    let dataObj = {
+      with: name,
+      purpose: purpose,
+      time: time
+    };
+    const schedulesPost = await fetch("http://localhost:3000/api/schedules", {
+      method: "POST",
+      cache: "no-store",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(dataObj),
+    });
+    const res = await schedulesPost.json();
+    setMode("hidden");
+    router.refresh()
+  }
   return (
     <>
       <button
@@ -86,10 +107,9 @@ const Modal = () => {
             </div>
             <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-500">
               <span
-                className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-black"
+                className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-black cursor-pointer"
                 onClick={() => {
-                  let dataObj = {name, purpose, time}
-                  console.log(dataObj);
+                  postData();
                 }}
               >
                 Save changes

@@ -2,6 +2,8 @@ import DeleteBtn from "@/components/DeleteBtn";
 import React from "react";
 import Modal from "./ProjectsModal";
 
+// Your homework is to add update functionality and fetch workspaces from databse. See you guys with amzaing next13 project
+
 const page = async () => {
   // lets leave it here
   // TODO: fix reload issue

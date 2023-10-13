@@ -20,7 +20,7 @@ const DeleteBtn = ({ slug, id }) => {
           }
         );
         const res = await deleteItem.json();
-        console.log(res);
+        router.refresh()
       }}
     >
       Delete

@@ -1,13 +1,35 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Modal = () => {
+  const router = useRouter();
+
   const [mode, setMode] = useState("hidden");
   const [name, setName] = useState("");
   const [business_name, setbusiness_name] = useState("");
   const [amountfreelancer, setamountfreelancer] = useState("");
   const [amountclient, setamountclient] = useState("");
+  async function postData() {
+    let dataObj = {
+      name,
+      business_name,
+      amountclient,
+      amountfreelancer,
+    };
+    const schedulesPost = await fetch("http://localhost:3000/api/projects", {
+      method: "POST",
+      cache: "no-store",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(dataObj),
+    });
+    const res = await schedulesPost.json();
+    setMode("hidden");
+    router.refresh();
+  }
   return (
     <>
       <button
@@ -53,9 +75,9 @@ const Modal = () => {
                 <input
                   className="y-3 py-3 my-2 px-4 block w-full border-gray-200  text-sm border-b-2 focus:border-blue-500 focus:ring-blue-500 dark:bg-black dark:border-gray-500 dark:text-gray-400"
                   type="text"
-                  name="with"
-                  id="with"
-                  placeholder="With(Person)"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
@@ -100,13 +122,7 @@ const Modal = () => {
               <span
                 className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-black"
                 onClick={() => {
-                  let dataObj = {
-                    name,
-                    business_name,
-                    amountclient,
-                    amountfreelancer,
-                  };
-                  console.log(dataObj);
+                  postData();
                 }}
               >
                 Save changes
