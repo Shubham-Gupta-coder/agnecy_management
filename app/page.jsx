@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 // TODO Goals of the website
 // * 1. Save and view all the leads
-// * 2. Check all the finances,contains accounts of all devs and clients
+// * 2. Workspace - contains all essential links
 // * 3. view all the past and ongoing projects
 // * 4. see all schedules and upcoming meetings
 
@@ -21,7 +21,7 @@ export default function Home() {
         <Schedules />
         <button
           type="button"
-          class="py-3 px-4 mt-5 w-full inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:text-gray-500 dark:hover:bg-blue-700 dark:hover:text-gray-300 dark:focus:ring-offset-gray-800"
+          className="py-3 px-4 mt-5 w-full inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:text-gray-500 dark:hover:bg-blue-700 dark:hover:text-gray-300 dark:focus:ring-offset-gray-800"
         >
           Add Schedule
         </button>
