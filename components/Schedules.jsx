@@ -1,4 +1,5 @@
 import React from 'react'
+import DeleteBtn from './DeleteBtn';
 
 const Schedules = async () => {
   const schedulesData = await fetch("http://localhost:3000/api/schedules", {
@@ -55,12 +56,7 @@ const Schedules = async () => {
                           {schedule.time}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a
-                            className="text-blue-500 hover:text-blue-700"
-                            href="#"
-                          >
-                            Delete
-                          </a>
+                          <DeleteBtn slug="schedules" id={schedule._id} />
                         </td>
                       </tr>
                     );

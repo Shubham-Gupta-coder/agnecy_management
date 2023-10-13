@@ -1,4 +1,5 @@
 "use client";
+import Modal from "@/components/ScheduleModal";
 import Schedules from "@/components/Schedules";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -19,12 +20,7 @@ export default function Home() {
     <main className="pt-10 flex container mx-auto">
       <div className="w-2/3 h-[600px] p-5 rounded-md border border-gray-500">
         <h1 className="mb-5 text-gray-300">Upcoming</h1>
-        <button
-          type="button"
-          className="py-3 px-4 mb-5 w-full inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-all text-sm dark:text-gray-500 dark:hover:bg-blue-700 dark:hover:text-gray-300 dark:focus:ring-offset-gray-800"
-        >
-          Add Schedule
-        </button>
+        <Modal />
         <Schedules/>
       </div>
       <div className="w-1/3 min-h-[80vh] px-5 ">
