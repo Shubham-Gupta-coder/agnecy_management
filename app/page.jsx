@@ -21,13 +21,28 @@ export default function Home() {
       <div className="w-2/3 h-[600px] p-5 rounded-md border border-gray-500">
         <h1 className="mb-5 text-gray-300">Upcoming</h1>
         <Modal />
-        <Schedules/>
+        <Schedules />
       </div>
       <div className="w-1/3 min-h-[80vh] px-5 ">
         <div className="p-5 flex flex-col items-center justify-center w-full h-[600px] rounded-md border border-gray-500 space-y-5">
-          <Link href="/leads" className="w-full h-full rounded-md border-2 border-gray-500 text-white flex items-center justify-around text-3xl font-bold hover:bg-white hover:text-black transition-all cursor-pointer">View all Leads</Link>
-          <Link href="/projects" className="w-full h-full rounded-md border-2 border-gray-500 text-white flex items-center justify-around text-3xl font-bold hover:bg-white hover:text-black transition-all cursor-pointer">View all Projects</Link>
-          <Link href="/workspace" className="w-full h-full rounded-md border-2 border-gray-500 text-white flex items-center justify-around text-3xl font-bold hover:bg-white hover:text-black transition-all cursor-pointer">Visit Workspace</Link>
+          <Link
+            href="/leads"
+            className="w-full h-full rounded-md border-2 border-gray-500 text-white flex items-center justify-around text-3xl font-bold hover:bg-white hover:text-black transition-all cursor-pointer"
+          >
+            View all Leads
+          </Link>
+          <Link
+            href="/projects"
+            className="w-full h-full rounded-md border-2 border-gray-500 text-white flex items-center justify-around text-3xl font-bold hover:bg-white hover:text-black transition-all cursor-pointer"
+          >
+            View all Projects
+          </Link>
+          <Link
+            href="/workspace"
+            className="w-full h-full rounded-md border-2 border-gray-500 text-white flex items-center justify-around text-3xl font-bold hover:bg-white hover:text-black transition-all cursor-pointer"
+          >
+            Visit Workspace
+          </Link>
         </div>
       </div>
     </main>

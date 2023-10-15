@@ -14,7 +14,7 @@ const page = async () => {
   return (
     <section className="container mx-auto py-10">
       <h1 className="my-5">Projects</h1>
-      <Modal/>
+      <Modal />
       <div className="flex flex-col">
         <div className="-m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">
@@ -55,26 +55,27 @@ const page = async () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  {projectsDataJson.map(project => {
-                    return <tr key={project._id}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                        {project.name}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                        {project.business_name}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                        {project.amountclient}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                        {project.amountfreelancer}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <DeleteBtn slug="projects" id={project._id}/>
-                      </td>
-                    </tr>;
+                  {projectsDataJson.map((project) => {
+                    return (
+                      <tr key={project._id}>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                          {project.name}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          {project.business_name}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          {project.amountclient}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                          {project.amountfreelancer}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <DeleteBtn slug="projects" id={project._id} />
+                        </td>
+                      </tr>
+                    );
                   })}
-                  
                 </tbody>
               </table>
             </div>

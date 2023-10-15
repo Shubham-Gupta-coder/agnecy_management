@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import DeleteBtn from "@/components/DeleteBtn";
 import React from "react";
@@ -12,7 +12,7 @@ const page = async () => {
   return (
     <section className="container mx-auto py-10">
       <h1 className="my-5">Leads</h1>
-      <Modal/>
+      <Modal />
       <div className="flex flex-col">
         <div className="-m-1.5 overflow-x-auto">
           <div className="p-1.5 min-w-full inline-block align-middle">
@@ -48,7 +48,7 @@ const page = async () => {
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {leadsDataJson.map((lead) => {
-                    console.log(lead._id)
+                    console.log(lead._id);
                     return (
                       <tr key={lead._id}>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
